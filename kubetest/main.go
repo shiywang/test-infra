@@ -245,9 +245,12 @@ func complete(o *options) error {
 		}()
 	}
 
+	log.Printf("before run(deploy, *o)")
 	if err := run(deploy, *o); err != nil {
 		return err
 	}
+	log.Printf("after run(deploy, *o)")
+
 
 	// Save the state if we upped a new cluster without downing it
 	// or we are turning up federated clusters without turning up
